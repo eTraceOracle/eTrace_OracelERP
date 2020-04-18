@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ipro.emrsn.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ipro.emrsn.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ipro.emrsn.org/">
+      <s:element name="GetAML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ItemNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAMLResult" type="tns:ArrayOfVeTraceAml" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfVeTraceAml">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VeTraceAml" nillable="true" type="tns:VeTraceAml" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VeTraceAml">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:VeTraceAmlBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="VeTraceAmlBase" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PartNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManufacturerPart" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AmlStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AmlNotes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AmlaoNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShelfLife" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Temperature" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelativeHumidity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MoistureSensitivityLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertificateOfCompliance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoHs" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SafetyAgency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Esd" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SafetyCritical" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tag" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAMLByPartList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ItemNumbers" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAMLByPartListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAMLByPartListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentsByPartList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ItemNumbers" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentsByPartListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDocumentsByPartListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetComplianceFlag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ItemNumbers" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VinternalPartComplianceFlagBase" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PartNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComplianceType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsCompliant" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tag" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VinternalPartComplianceFlag">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:VinternalPartComplianceFlagBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfVinternalPartComplianceFlag">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VinternalPartComplianceFlag" nillable="true" type="tns:VinternalPartComplianceFlag" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetComplianceFlagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetComplianceFlagResult" type="tns:ArrayOfVinternalPartComplianceFlag" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoHSFlag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ItemNumbers" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoHSFlagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoHSFlagResult" type="tns:ArrayOfVinternalPartComplianceFlag" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAMLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAML" />
+  </wsdl:message>
+  <wsdl:message name="GetAMLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAMLByPartListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAMLByPartList" />
+  </wsdl:message>
+  <wsdl:message name="GetAMLByPartListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAMLByPartListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByPartListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDocumentsByPartList" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByPartListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDocumentsByPartListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetComplianceFlagSoapIn">
+    <wsdl:part name="parameters" element="tns:GetComplianceFlag" />
+  </wsdl:message>
+  <wsdl:message name="GetComplianceFlagSoapOut">
+    <wsdl:part name="parameters" element="tns:GetComplianceFlagResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoHSFlagSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoHSFlag" />
+  </wsdl:message>
+  <wsdl:message name="GetRoHSFlagSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoHSFlagResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FusionPOCSoap">
+    <wsdl:operation name="GetAML">
+      <wsdl:input message="tns:GetAMLSoapIn" />
+      <wsdl:output message="tns:GetAMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAMLByPartList">
+      <wsdl:input message="tns:GetAMLByPartListSoapIn" />
+      <wsdl:output message="tns:GetAMLByPartListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByPartList">
+      <wsdl:input message="tns:GetDocumentsByPartListSoapIn" />
+      <wsdl:output message="tns:GetDocumentsByPartListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComplianceFlag">
+      <wsdl:input message="tns:GetComplianceFlagSoapIn" />
+      <wsdl:output message="tns:GetComplianceFlagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoHSFlag">
+      <wsdl:input message="tns:GetRoHSFlagSoapIn" />
+      <wsdl:output message="tns:GetRoHSFlagSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FusionPOCSoap" type="tns:FusionPOCSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAML">
+      <soap:operation soapAction="http://ipro.emrsn.org/GetAML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAMLByPartList">
+      <soap:operation soapAction="http://ipro.emrsn.org/GetAMLByPartList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByPartList">
+      <soap:operation soapAction="http://ipro.emrsn.org/GetDocumentsByPartList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetComplianceFlag">
+      <soap:operation soapAction="http://ipro.emrsn.org/GetComplianceFlag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoHSFlag">
+      <soap:operation soapAction="http://ipro.emrsn.org/GetRoHSFlag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FusionPOCSoap12" type="tns:FusionPOCSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAML">
+      <soap12:operation soapAction="http://ipro.emrsn.org/GetAML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAMLByPartList">
+      <soap12:operation soapAction="http://ipro.emrsn.org/GetAMLByPartList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByPartList">
+      <soap12:operation soapAction="http://ipro.emrsn.org/GetDocumentsByPartList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetComplianceFlag">
+      <soap12:operation soapAction="http://ipro.emrsn.org/GetComplianceFlag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoHSFlag">
+      <soap12:operation soapAction="http://ipro.emrsn.org/GetRoHSFlag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FusionPOC">
+    <wsdl:port name="FusionPOCSoap" binding="tns:FusionPOCSoap">
+      <soap:address location="https://ipro.ecp.priv/iprowsaa/fusionpoc.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FusionPOCSoap12" binding="tns:FusionPOCSoap12">
+      <soap12:address location="https://ipro.ecp.priv/iprowsaa/fusionpoc.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

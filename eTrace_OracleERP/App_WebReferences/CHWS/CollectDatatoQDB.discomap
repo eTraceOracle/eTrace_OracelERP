@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://cnalcluoapp49/CollectDatatoQDB/CollectDatatoQDB.asmx?disco" filename="CollectDatatoQDB.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://cnalcluoapp49/CollectDatatoQDB/CollectDatatoQDB.asmx?wsdl" filename="CollectDatatoQDB.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

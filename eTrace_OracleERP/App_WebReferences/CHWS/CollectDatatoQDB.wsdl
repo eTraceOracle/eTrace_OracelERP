@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="WriteRepairToQDB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RepairData">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteRepairToQDBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WriteRepairToQDBResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckFloor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sFloor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckFloorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckFloorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sSQL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SQLStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSNResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFrom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSubject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sComment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendEmailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Rework_New">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsFlow">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Rework_NewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Rework_NewResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSNStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSNStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSNStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificationOfCustomerCLID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArtesynPN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tblName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificationOfCustomerCLIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerificationOfCustomerCLIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DJStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DJ" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DJStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DJStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ItemRelationStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DJ" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CLID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ItemRelationStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ItemRelationStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="WriteRepairToQDBSoapIn">
+    <wsdl:part name="parameters" element="tns:WriteRepairToQDB" />
+  </wsdl:message>
+  <wsdl:message name="WriteRepairToQDBSoapOut">
+    <wsdl:part name="parameters" element="tns:WriteRepairToQDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckFloorSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckFloor" />
+  </wsdl:message>
+  <wsdl:message name="CheckFloorSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckFloorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLStringSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLString" />
+  </wsdl:message>
+  <wsdl:message name="SQLStringSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSNSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSN" />
+  </wsdl:message>
+  <wsdl:message name="GetSNSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSNResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendEmail" />
+  </wsdl:message>
+  <wsdl:message name="SendEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="Rework_NewSoapIn">
+    <wsdl:part name="parameters" element="tns:Rework_New" />
+  </wsdl:message>
+  <wsdl:message name="Rework_NewSoapOut">
+    <wsdl:part name="parameters" element="tns:Rework_NewResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSNStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSNStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetSNStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSNStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificationOfCustomerCLIDSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificationOfCustomerCLID" />
+  </wsdl:message>
+  <wsdl:message name="VerificationOfCustomerCLIDSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificationOfCustomerCLIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DJStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:DJStatus" />
+  </wsdl:message>
+  <wsdl:message name="DJStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:DJStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ItemRelationStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:ItemRelationStatus" />
+  </wsdl:message>
+  <wsdl:message name="ItemRelationStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:ItemRelationStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CollectDataToQDBSoap">
+    <wsdl:operation name="WriteRepairToQDB">
+      <wsdl:input message="tns:WriteRepairToQDBSoapIn" />
+      <wsdl:output message="tns:WriteRepairToQDBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckFloor">
+      <wsdl:input message="tns:CheckFloorSoapIn" />
+      <wsdl:output message="tns:CheckFloorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLString">
+      <wsdl:input message="tns:SQLStringSoapIn" />
+      <wsdl:output message="tns:SQLStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSN">
+      <wsdl:input message="tns:GetSNSoapIn" />
+      <wsdl:output message="tns:GetSNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <wsdl:input message="tns:SendEmailSoapIn" />
+      <wsdl:output message="tns:SendEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Rework_New">
+      <wsdl:input message="tns:Rework_NewSoapIn" />
+      <wsdl:output message="tns:Rework_NewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSNStatus">
+      <wsdl:input message="tns:GetSNStatusSoapIn" />
+      <wsdl:output message="tns:GetSNStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificationOfCustomerCLID">
+      <wsdl:input message="tns:VerificationOfCustomerCLIDSoapIn" />
+      <wsdl:output message="tns:VerificationOfCustomerCLIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DJStatus">
+      <wsdl:input message="tns:DJStatusSoapIn" />
+      <wsdl:output message="tns:DJStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ItemRelationStatus">
+      <wsdl:input message="tns:ItemRelationStatusSoapIn" />
+      <wsdl:output message="tns:ItemRelationStatusSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CollectDataToQDBSoap" type="tns:CollectDataToQDBSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="WriteRepairToQDB">
+      <soap:operation soapAction="http://tempuri.org/WriteRepairToQDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFloor">
+      <soap:operation soapAction="http://tempuri.org/CheckFloor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLString">
+      <soap:operation soapAction="http://tempuri.org/SQLString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSN">
+      <soap:operation soapAction="http://tempuri.org/GetSN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <soap:operation soapAction="http://tempuri.org/SendEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rework_New">
+      <soap:operation soapAction="http://tempuri.org/Rework_New" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSNStatus">
+      <soap:operation soapAction="http://tempuri.org/GetSNStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificationOfCustomerCLID">
+      <soap:operation soapAction="http://tempuri.org/VerificationOfCustomerCLID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DJStatus">
+      <soap:operation soapAction="http://tempuri.org/DJStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemRelationStatus">
+      <soap:operation soapAction="http://tempuri.org/ItemRelationStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CollectDataToQDBSoap12" type="tns:CollectDataToQDBSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="WriteRepairToQDB">
+      <soap12:operation soapAction="http://tempuri.org/WriteRepairToQDB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFloor">
+      <soap12:operation soapAction="http://tempuri.org/CheckFloor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLString">
+      <soap12:operation soapAction="http://tempuri.org/SQLString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSN">
+      <soap12:operation soapAction="http://tempuri.org/GetSN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <soap12:operation soapAction="http://tempuri.org/SendEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Rework_New">
+      <soap12:operation soapAction="http://tempuri.org/Rework_New" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSNStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetSNStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificationOfCustomerCLID">
+      <soap12:operation soapAction="http://tempuri.org/VerificationOfCustomerCLID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DJStatus">
+      <soap12:operation soapAction="http://tempuri.org/DJStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemRelationStatus">
+      <soap12:operation soapAction="http://tempuri.org/ItemRelationStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CollectDataToQDB">
+    <wsdl:port name="CollectDataToQDBSoap" binding="tns:CollectDataToQDBSoap">
+      <soap:address location="http://cnalcluoapp49/CollectDatatoQDB/CollectDatatoQDB.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CollectDataToQDBSoap12" binding="tns:CollectDataToQDBSoap12">
+      <soap12:address location="http://cnalcluoapp49/CollectDatatoQDB/CollectDatatoQDB.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
