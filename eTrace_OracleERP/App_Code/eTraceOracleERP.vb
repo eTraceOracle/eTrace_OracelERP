@@ -4751,7 +4751,7 @@ Public Class eTraceOracleERP    ' Publish target location: C:\Inetpub\wwwroot\eT
         Return _eTraceOracle_Andon.AndonLineStopFreq(Model, Line)
     End Function
 
-    <WebMethod()> _
+    <WebMethod()>
     Public Function GetAndonProdSche(ByVal Line As String) As DataSet
         Dim i As Integer
         Dim dsAndonProdSche As DataSet = New DataSet("dsAndonProdSche")
@@ -4767,6 +4767,11 @@ Public Class eTraceOracleERP    ' Publish target location: C:\Inetpub\wwwroot\eT
             ErrorLogging("TDC-GetAndonProdSche", "", ex.Message)
         End Try
         Return dsAndonProdSche
+    End Function
+
+    <WebMethod()>
+    Public Function Test(ByVal inputTest As String) As String
+        Return inputTest
     End Function
 
     <WebMethod()> _
