@@ -4770,7 +4770,7 @@ Public Class eTraceOracleERP    ' Publish target location: C:\Inetpub\wwwroot\eT
     End Function
 
     <WebMethod()>
-    Public Function Test(ByVal inputTest As String) As String
+    Public Function publishTest(ByVal inputTest As String) As String
         Return inputTest
     End Function
 
